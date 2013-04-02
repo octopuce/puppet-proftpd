@@ -81,7 +81,7 @@ class proftpd::params {
     default => '/var/log/proftpd/proftpd.log',
   }
 
-  $port = '42'
+  $port = '21'
   $protocol = 'tcp'
 
   # General Settings
