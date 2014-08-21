@@ -140,6 +140,9 @@
 # [*service_status*]
 #   If the proftpd service init script supports status argument
 #
+# [*service_restart*]
+#   If the proftpd service init script supports restart argument
+#
 # [*process*]
 #   The name of proftpd process
 #
@@ -230,6 +233,7 @@ class proftpd (
   $package             = params_lookup( 'package' ),
   $service             = params_lookup( 'service' ),
   $service_status      = params_lookup( 'service_status' ),
+  $service_restart     = params_lookup( 'service_restart' ),
   $process             = params_lookup( 'process' ),
   $process_args        = params_lookup( 'process_args' ),
   $process_user        = params_lookup( 'process_user' ),
@@ -340,6 +344,7 @@ class proftpd (
     enable     => $proftpd::manage_service_enable,
     hasstatus  => $proftpd::service_status,
     pattern    => $proftpd::process,
+    hasrestart => $proftpd::service_restart,
     require    => Package['proftpd'],
   }
 
