@@ -28,6 +28,10 @@ class proftpd::params {
     default => true,
   }
 
+  $service_restart = $::operatingsystem ? {
+    default => true,
+  }
+
   $process = $::operatingsystem ? {
     default => 'proftpd',
   }
