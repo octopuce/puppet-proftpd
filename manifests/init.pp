@@ -348,8 +348,6 @@ class proftpd (
     require    => Package['proftpd'],
   }
 
-  notice("ensure = ${proftpd::manage_service_ensure} name = ${proftpd::service} enable = ${proftpd::manage_service_enable} hasstatus = ${proftpd::service_status} pattern = ${proftpd::process}")
-
   file { 'proftpd.conf':
     ensure  => $proftpd::manage_file,
     path    => $proftpd::config_file,
