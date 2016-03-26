@@ -363,8 +363,8 @@ class proftpd (
   }
 
   # The whole proftpd configuration directory can be recursively overriden
-  if $proftpd::source_dir {
-    file { 'proftpd.dir':
+  if !empty($proftpd::source_dir) {
+    file { "proftpd.dir" :
       ensure  => directory,
       path    => $proftpd::config_dir,
       require => Package['proftpd'],
